@@ -17,6 +17,13 @@ import sip
 if sys.version_info.major >= 3:
     sip.setapi('QVariant', 2)
 
+import sys
+__dir__ = os.path.dirname(os.path.abspath(__file__))
+
+sys.path.append(__dir__)
+# sys.path.insert(0, os.path.abspath(os.path.join(__dir__, '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(__dir__, 'libs')))
+
 import resources
 # Add internal libs
 from libs.constants import *
@@ -1088,7 +1095,7 @@ class MainWindow(QMainWindow, WindowMixin):
                 self.labelList.item(self.labelList.count()-1).setSelected(True)
 
             self.canvas.setFocus(True)
-            #####
+            ##### 控制是否显示bbox
             self.togglePolygons(False)
             return True
         return False
